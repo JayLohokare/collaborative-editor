@@ -23,13 +23,14 @@ URL
 https://sullyhackathon.uw.r.appspot.com
 ```
 
-
 <h1>Frontend</h1>
 - ReactJS webapp 
-
 
 <h1>Architecture</h1>
 
 1. CRUD on FireStore to store Users / Documents / Document Deltas
-2. Document lifecycle - 
--- I am storing "deltas" on cloud store to 
+2. Document lifecycle - We are storing 'deltas' for any edits made on Firestore 
+
+There are 2 delta calculators running concurrently :
+1. Websocket : To push / Pull changes to other clients [Works like a charm!]
+2. API : To push / Pull changes to Firestore [This one is currently slightly broken for a few edge cases]
